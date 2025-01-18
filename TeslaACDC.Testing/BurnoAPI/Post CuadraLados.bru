@@ -1,0 +1,21 @@
+meta {
+  name: Post CuadraLados
+  type: http
+  seq: 6
+}
+
+post {
+  url: http://localhost:5136/api/tesla/AreaTriangulo
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "side1": 4,
+      "side2": 4,
+      "side3": 4,
+      "side4": 4
+  }
+  
+}

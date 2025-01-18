@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeslaACDC.API", "TeslaACDC.API\TeslaACDC.API.csproj", "{CB8F3B1B-6889-444D-A6C5-B626CB366F83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeslaACDC.Business", "TeslaACDC.Business\TeslaACDC.Business.csproj", "{E00DBC79-3BC7-436C-9A93-73023C9FD56C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeslaACDC.Data", "TeslaACDC.Data\TeslaACDC.Data.csproj", "{B2450D89-2924-41C2-AF4F-545EF058DB99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeslaACDC.Testing", "TeslaACDC.Testing\TeslaACDC.Testing.csproj", "{D44B62C1-1A38-4466-BAB4-B57AED4EACB8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CB8F3B1B-6889-444D-A6C5-B626CB366F83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB8F3B1B-6889-444D-A6C5-B626CB366F83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB8F3B1B-6889-444D-A6C5-B626CB366F83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB8F3B1B-6889-444D-A6C5-B626CB366F83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CF2A915-E25E-4DA6-90D5-D053484D4399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CF2A915-E25E-4DA6-90D5-D053484D4399}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CF2A915-E25E-4DA6-90D5-D053484D4399}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CF2A915-E25E-4DA6-90D5-D053484D4399}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E00DBC79-3BC7-436C-9A93-73023C9FD56C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E00DBC79-3BC7-436C-9A93-73023C9FD56C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E00DBC79-3BC7-436C-9A93-73023C9FD56C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E00DBC79-3BC7-436C-9A93-73023C9FD56C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2450D89-2924-41C2-AF4F-545EF058DB99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2450D89-2924-41C2-AF4F-545EF058DB99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2450D89-2924-41C2-AF4F-545EF058DB99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2450D89-2924-41C2-AF4F-545EF058DB99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D44B62C1-1A38-4466-BAB4-B57AED4EACB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D44B62C1-1A38-4466-BAB4-B57AED4EACB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D44B62C1-1A38-4466-BAB4-B57AED4EACB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D44B62C1-1A38-4466-BAB4-B57AED4EACB8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
