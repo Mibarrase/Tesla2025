@@ -12,7 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 // Inyección de dependencia
 builder.Services.AddScoped<IAlbumService, AlbumService>();
-
+builder.Services.AddScoped<IMatematika, Matematika>();
 
 var app = builder.Build();
 

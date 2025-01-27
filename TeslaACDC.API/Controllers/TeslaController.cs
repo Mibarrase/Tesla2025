@@ -1,8 +1,6 @@
 namespace TeslaACDC.Controllers;
-
 using Microsoft.AspNetCore.Mvc;
 using TeslaACDC.Business.Interfaces;
-using TeslaACDC.Business.Services;
 using TeslaACDC.Data.Models;
 
 [ApiController]
@@ -10,25 +8,43 @@ using TeslaACDC.Data.Models;
 public class TeslaController : ControllerBase
 {
     private readonly IAlbumService _albumService;
+    private readonly IMatematika _matematikaService;
 
-    public TeslaController(IAlbumService albumService)
+   public TeslaController(IAlbumService albumService, IMatematika matematikaService)
     {
         _albumService = albumService;
+        _matematikaService = matematikaService;
     }
 
     [HttpGet]
     [Route("GetAlbum")]
     public async Task<IActionResult> GetAlbum()
     {
-        var lista = await _albumService.GetList();
-        return Ok(lista);
+        return Ok(await  _albumService.GetList());
     }
+
+    [HttpGet]
+    [Route("GetAlbumById")]
+    public async Task<IActionResult> GetAlbumById(int id)
+    {
+        var response = await _albumService.FindById(id);
+        return StatusCode((int)response.StatusCode, response);
+    }
+
+      [HttpGet]
+    [Route("GetAlbumByName")]
+    public async Task<IActionResult> GetAlbumByName(string name)
+    {
+        var response = await _albumService.FindBymName(name);
+        return StatusCode((int)response.StatusCode, response);
+    }
+
 
     [HttpPost]
     [Route("ReciboValor")]
     public async Task<IActionResult> ReciboValor(Album album)
     {
-        return Ok($"Mi nombre es: {album.Nombre}");
+        return Ok($"Mi nombre es: {album.Name}");
     }
 
     [HttpPost]
@@ -36,20 +52,6 @@ public class TeslaController : ControllerBase
     public async Task<IActionResult> ReciboUnValor([FromBody] string album)
     {
         return Ok(album);
-    }
-
-    [HttpGet]
-    [Route("ListAlbums")]
-    public async Task<IActionResult> GetStaticAlbumList()
-    {
-        var listaAlbums = new List<Album>
-        {
-            new Album {Nombre = "The Heist", Anio = 2012, Genero = "Rap"},
-            new Album {Nombre = "Thriller", Anio = 1982, Genero = "Pop"},
-            new Album {Nombre = "Encore", Anio = 2004, Genero = "Rap"}
-        };
-
-        return Ok(listaAlbums);
     }
 
     [HttpPost]
