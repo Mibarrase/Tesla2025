@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using TeslaACDC.Business.Interfaces;
 using TeslaACDC.Business.Services;
 
@@ -8,6 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddDbContext<NikolaContext>(
+    opt => opt.UseNpgsql(builder.Configuration.GetConnectionString("Nikola"))
+);
+
 
 
 // Inyección de dependencia

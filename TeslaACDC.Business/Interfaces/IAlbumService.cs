@@ -13,4 +13,5 @@ public interface IAlbumService
     Task<BaseMessage<Album>> EditAlbum(int id, Album updatedAlbum); 
     Task<BaseMessage<Album>> DeleteAlbum(int id); 
     Task<BaseMessage<Album>> FindByArtist(int artistId); 
+    Task<BaseMessage<Album>> FinByYear(int YearId); 
 }

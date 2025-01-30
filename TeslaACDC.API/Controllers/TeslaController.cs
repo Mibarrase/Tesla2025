@@ -31,13 +31,22 @@ public class TeslaController : ControllerBase
         return StatusCode((int)response.StatusCode, response);
     }
 
-      [HttpGet]
+    [HttpGet]
     [Route("GetAlbumByName")]
     public async Task<IActionResult> GetAlbumByName(string name)
     {
-        var response = await _albumService.FindBymName(name);
+        var response = await _albumService.FindByName(name);
         return StatusCode((int)response.StatusCode, response);
     }
+    [HttpGet]
+    [Route("GetYearPubli")] 
+    public async Task<IActionResult> GetYearPubli(int year)
+    {
+        var response = await _albumService.FinByYear(year);
+        return StatusCode((int)response.StatusCode, response);
+    }
+
+
 
 
     [HttpPost]

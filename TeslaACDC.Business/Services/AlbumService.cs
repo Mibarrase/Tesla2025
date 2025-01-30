@@ -13,17 +13,17 @@ public class AlbumService : IAlbumService
 
     public AlbumService()
     {
-        _listaAlbum.Add(new (){Name = "The Heist", Genre = Genre.Rap, Year = 2012, Id = 1, ArtistId = 0});
-        _listaAlbum.Add(new (){Name = "Thriller", Genre = Genre.Pop, Year = 1982, Id = 2, ArtistId = 0});
-        _listaAlbum.Add(new (){Name = "Encore", Genre = Genre.Rap, Year = 2004, Id = 3, ArtistId = 0});
-        _listaAlbum.Add(new (){Name = "All Eyez on Me", Genre = Genre.Rap, Year = 1996, Id = 4, ArtistId = 0});
-        _listaAlbum.Add(new (){Name = "2001", Genre = Genre.Rap, Year = 1999, Id = 5, ArtistId = 0});
-        _listaAlbum.Add(new (){Name = "Bad", Genre = Genre.Pop, Year = 1987, Id = 6, ArtistId = 0});
-        _listaAlbum.Add(new (){Name = "The Chronic", Genre = Genre.Rap, Year = 1992, Id = 0, ArtistId = 0});
-        _listaAlbum.Add(new (){Name = "The Marshall Mathers LP", Genre = Genre.Rap, Year = 2000, Id = 0, ArtistId = 0});
-        _listaAlbum.Add(new (){Name = "The Eminem Show", Genre = Genre.Rap, Year = 2002, Id = 0, ArtistId = 0});
-        _listaAlbum.Add(new (){Name = "Doggystyle", Genre = Genre.GFunk, Year = 1993, Id = 0, ArtistId = 0});
-        _listaAlbum.Add(new (){Name = "Ready to Die", Genre = Genre.Rap, Year = 1994, Id = 0, ArtistId = 0});        
+        _listaAlbum.Add(new (){Name = "The Heist", Genre = Genre.Rap, Year = 2012, Id = 1, });
+        _listaAlbum.Add(new (){Name = "Thriller", Genre = Genre.Pop, Year = 1982, Id = 2, });
+        _listaAlbum.Add(new (){Name = "Encore", Genre = Genre.Rap, Year = 2004, Id = 3, });
+        _listaAlbum.Add(new (){Name = "All Eyez on Me", Genre = Genre.Rap, Year = 1996, Id = 4, });
+        _listaAlbum.Add(new (){Name = "2001", Genre = Genre.Rap, Year = 1999, Id = 5, });
+        _listaAlbum.Add(new (){Name = "Bad", Genre = Genre.Pop, Year = 1987, Id = 6, });
+        _listaAlbum.Add(new (){Name = "The Chronic", Genre = Genre.Rap, Year = 1992, Id = 0,});
+        _listaAlbum.Add(new (){Name = "The Marshall Mathers LP", Genre = Genre.Rap, Year = 2000, Id = 0, });
+        _listaAlbum.Add(new (){Name = "The Eminem Show", Genre = Genre.Rap, Year = 2002, Id = 0, });
+        _listaAlbum.Add(new (){Name = "Doggystyle", Genre = Genre.GFunk, Year = 1993, Id = 0,  });
+        _listaAlbum.Add(new (){Name = "Ready to Die", Genre = Genre.Rap, Year = 1994, Id = 0,  });        
     }
 
     public async Task<BaseMessage<Album>> AddAlbum()
@@ -99,7 +99,7 @@ public class AlbumService : IAlbumService
     album.Name = updatedAlbum.Name;
     album.Genre = updatedAlbum.Genre;
     album.Year = updatedAlbum.Year;
-    album.ArtistId = updatedAlbum.ArtistId;
+    //album.ArtistId = updatedAlbum.ArtistId;
 
     return BuildResponse(new List<Album> { album }, "Álbum actualizado correctamente", HttpStatusCode.OK, 1);
 }
@@ -117,13 +117,19 @@ public async Task<BaseMessage<Album>> DeleteAlbum(int id)
     return BuildResponse(new List<Album>(), "Álbum eliminado correctamente", HttpStatusCode.OK, 0);
 }
 
-public async Task<BaseMessage<Album>> FindByArtist(int artistId)
+
+
+public async Task<BaseMessage<Album>> FinByYear(int YearId)
 {
-    var lista = _listaAlbum.Where(x => x.ArtistId == artistId).ToList();
+    var lista = _listaAlbum.Where(x => x.Year == YearId).ToList();
 
     return lista.Any()
-        ? BuildResponse(lista, "Álbumes encontrados", HttpStatusCode.OK, lista.Count)
-        : BuildResponse(new List<Album>(), "No se encontraron álbumes para el artista", HttpStatusCode.NotFound, 0);
+        ? BuildResponse(lista, "Año no encontrado", HttpStatusCode.OK, lista.Count)
+        : BuildResponse(new List<Album>(), "No se encontraron álbumes para el artista de ese año", HttpStatusCode.NotFound, 0);
 }
 
+    public Task<BaseMessage<Album>> FindByArtist(int artistId)
+    {
+        throw new NotImplementedException();
+    }
 }
